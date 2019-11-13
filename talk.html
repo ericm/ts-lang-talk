@@ -71,7 +71,69 @@
           <h1>That's where TypeScript comes in</h1>
         </section>
         <section>
-          <section><h1></h1></section>
+          <section>
+            <h1>Benefits of TypeScript</h1>
+            <p>
+              TypeScript is a superset of Javascript. This means it's both
+              compatible with JS code while also supporting more features
+            </p>
+          </section>
+          <section>
+            <h1>Typing system</h1>
+            <p>
+              In TypeScript code, types are defined either implicitly or
+              explicitly.
+            </p>
+            <p>
+              TypeScript uses type declarations to provide types for javascript
+              code. These are files that have the extension '.d.ts'.
+            </p>
+          </section>
+          <section>
+            <pre><code>
+      let a = "a"; // Implicit type of "string".
+      let b: string = "b" // Explicit type of "string".
+            </code></pre>
+          </section>
+          <section>
+            <p>index.js:</p>
+            <pre><code>
+      function abc(str) {
+        return "abc" + str;
+      }
+            </code></pre>
+            <p>index.d.ts:</p>
+            <pre><code>
+              declare function abc(str: string): string;
+            </code></pre>
+          </section>
+          <section>
+            <h1>Interfaces</h1>
+            <p>
+              Abstract classes that are used to define types of methodless
+              objects
+            </p>
+            <pre><code>
+      interface A {
+        i: number;
+        j: string;
+      }
+      interface J {
+        i: number;
+      }
+      let a: A = {i: 1, j: "1"}; 
+      // If the attributes match up then it's type is valid
+      // Therefore casting as below is valid
+      let b = a as J;
+            </code></pre>
+          </section>
+          <section>
+            <p>
+              Types are resolved using structural subtyping. That means an
+              interface would be treated as something like {a: number} since
+              it's base type is an object with an attribute a of type number.
+            </p>
+          </section>
         </section>
       </div>
     </div>
@@ -102,7 +164,6 @@
               return !!document.querySelector("[data-markdown]");
             }
           },
-          { src: "reveal/plugin/highlight/highlight.js", async: true },
           { src: "reveal/plugin/search/search.js", async: true },
           { src: "reveal/plugin/zoom-js/zoom.js", async: true },
           { src: "reveal/plugin/notes/notes.js", async: true }
